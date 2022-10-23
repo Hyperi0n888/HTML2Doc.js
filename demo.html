@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/css">
+    #editor {
+      border: 1px solid #000;
+      width: 800px;
+      height: 500px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="handleDownload()">下载</button>
+  <div id="editor" contenteditable="true">
+    <div id="header" style="mso-element: header;">我是页眉</div>
+    <h1>Hello, Wolrd!</h1>
+    <div id="footer" style="mso-element: footer;">我是页脚</div>
+  </div>
+  <script src="./HTML2doc.js"></script>
+  <script>
+    function handleDownload() {
+      let editor = document.getElementById('editor')
+      const instance = new HTML2Doc(editor.innerHTML)
+      instance.save("HTMl2Doc.doc")
+    }
+  </script>
+</body>
+</html>
